@@ -1,0 +1,19 @@
+<section >
+    <form class="form" method="get">
+      
+      <label for="nome"
+        >Nome:
+        <input type="text" name="nome" id="nome" [(ngModel)]="country.name"/>
+        <button type="button" (click)="getByName()">
+          <img
+            src="../../../../../assets/icones/search.png"
+            alt=""
+            width="30px"
+          />
+        </button>
+  
+      </label>
+  
+      <button class="submit-btn" type="button" (click)="save()">Salvar</button>
+    </form>
+  </section>

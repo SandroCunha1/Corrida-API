@@ -1,0 +1,29 @@
+<section >
+    <form class="form" method="get">
+      
+      <label for="nome"
+        >Nome:
+        <input type="text" name="nome" id="nome" [(ngModel)]="speedway.name" />
+        <button type="button">
+          <img
+            src="../../../../../assets/icones/search.png"
+            alt=""
+            width="30px"
+          />
+        </button>
+  
+      </label>
+      <label for="tamanho"
+        >Tamanho:
+        <input type="number" name="tamanho" id="tamanho" [(ngModel)]="speedway.size"/>
+      </label>
+  
+      <select name="pais" id="pais">
+        <option value="" selected disabled>Países</option>
+        <option *ngFor="let country of countrys" [value]="country.id" name="country" [(ngModel)]="speedway.country">{{country.name}}</option>
+      </select>
+  
+      <button class="submit-btn" type="button" (click)="save()">Salvar</button>
+    </form>
+  </section>
+  

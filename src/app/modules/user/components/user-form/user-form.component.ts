@@ -13,6 +13,8 @@ export class UserFormComponent implements OnInit {
 
   public user = {} as User
 
+  public users!: User[];
+
   ngOnInit(): void {
     this.service.emitEvent.subscribe({
       next: (res: User) => {
@@ -22,8 +24,21 @@ export class UserFormComponent implements OnInit {
   }
 
   public getByName(){
-    this.service.getByName(this.user.name);
+    this.service.getByName(this.user.name).subscribe((data)=>{
+      this.users = data;
+    })
   }
 
+  public save(){
+    if(this.user.id){
+      this.service.update(this.user).subscribe((data) => {
+        this.user = {} as User;
+      })
+    }else{
+      this.service.insert(this.user).subscribe((data) => {
+        this.user = {} as User;
+      })
+    }
+  }
 
 }

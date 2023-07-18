@@ -6,6 +6,8 @@ import { HomeModule } from './modules/home/home.module';
 import { MenuModule } from './modules/menu/menu.module';
 import { UserModule } from './modules/user/user.module';
 import { HttpClientModule } from '@angular/common/http';
+import { CountryModule } from './modules/country/country.module';
+import { SpeedWayModule } from './modules/speed-way/speed-way.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -16,6 +18,8 @@ import { HttpClientModule } from '@angular/common/http';
     HomeModule,
     MenuModule,
     UserModule,
+    CountryModule,
+    SpeedWayModule
   ],
   providers: [],
   bootstrap: [AppComponent],

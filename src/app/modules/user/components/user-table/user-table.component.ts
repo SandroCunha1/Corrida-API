@@ -20,14 +20,16 @@ export class UserTableComponent implements OnInit{
   }
 
   public editItem(user:User){
-    let newUser = {
-      id: user.id,
-      name: user.name,
-      email: user.email,
-      roles: user.roles,
-      password: user.password
-    }
+    const newUser: User = {...user}
     this.service.editUser(newUser);
+  }
+
+  public delete(user:User){
+    this.service.delete(user).subscribe(() => {
+      this.service.listAll().subscribe((data) =>{
+        this.users = data;
+      })
+    });
   }
 
   

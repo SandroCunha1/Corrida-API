@@ -1,8 +1,8 @@
 
 @import "../../../../../dist/SCSS/variables.scss";
 .menu {
-    background-color: $red;
-    box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.5);
+    background-color: $background;
+    box-shadow: 0px 0px 10px 1px rgba(255, 255, 255, 0.199);
     border-radius: 50%;
     width: 60px;
     height: 60px;
@@ -74,7 +74,7 @@ input:checked~label .menu{
     width: 250px;
     height: 100vh;
     padding-top: 100px;
-    background-color: rgba(0, 0, 0, 0.169);
+    background-color: $background;
     transition: 0.5s;
     top: 0;
     overflow: auto;

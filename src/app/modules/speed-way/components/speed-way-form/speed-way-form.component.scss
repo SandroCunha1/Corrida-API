@@ -15,6 +15,13 @@ section{
     flex-direction: column;
     color: $text-color;
     width: 100%;
+    select{
+        margin-top: 10px;
+        width: 100px;
+        height: 30px;
+        font-size: 17px;
+        border-radius: 5px;
+    }
     label {
         display: flex;
         align-items: center;
@@ -37,17 +44,6 @@ section{
             padding: 5px;
             :hover{
                 scale: 1.1;
-            }
-        }
-    }
-    .radio-group{
-        display: flex;
-        flex-direction: column;
-        margin-top: 20px;
-        .buttons{
-            display: flex;
-            label{
-                cursor: pointer;
             }
         }
     }

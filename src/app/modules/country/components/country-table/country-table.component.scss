@@ -20,6 +20,7 @@ section {
       &.imgs {
         display: flex;
         gap: 5px;
+        justify-content: end;
         button {
           background: none;
           color: inherit;

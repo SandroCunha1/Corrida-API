@@ -5,18 +5,14 @@
         </thead>
         <tr>
             <td class="header">Nome</td>
-            <td class="header">Email</td>
-            <td class="header">Permissões</td>
         </tr>
-        <tr *ngFor="let user of users"> 
-            <td>{{user.name}}</td>
-            <td>{{user.email}}</td>
-            <td>{{user.roles}}</td>
+        <tr *ngFor="let country of countrys"> 
+            <td>{{country.name}}</td>
             <td class="imgs">
-                <button (click)="editItem(user)">
+                <button (click)="editItem(country)">
                     <img src="../../../../../assets/icones/editar.png" alt="" width="20px">
                 </button>
-                <button (click)="delete(user)">
+                <button (click)="delete(country)">
                     <img src="../../../../../assets/icones/excluir.png" alt="" width="20px">
                 </button>
             </td>
