@@ -12,31 +12,41 @@ import { Country } from 'src/app/modules/country/models/country';
 export class SpeedWayFormComponent {
   constructor(private service: SpeedWayService, private countryService: CountryService){}
 
-  public speedway = {} as SpeedWay
+  public speedway:SpeedWay = {} as SpeedWay
 
   public countrys!: Country[]
   public speedways!: SpeedWay[];
 
+  public countrythis:Country = {} as Country
+
   ngOnInit(): void {
-    this.service.emitEvent.subscribe({
-      next: (res: SpeedWay) => {
-        this.speedway = res;
-      }
-    })
     this.countryService.listAll().subscribe((country) => {
       this.countrys = country;
     });
-  }
 
-  public getByName(){
-    this.service.getByName(this.speedway.name).subscribe((data)=>{
-      this.speedways = data;
+    this.service.emitEvent.subscribe({
+      next: (res: SpeedWay) => {
+        this.speedway = res;
+        let country = this.countrys.find((country) => this.speedway.country.id === country.id )
+        if(country !== undefined){
+          this.speedway.country = country;
+        }
+      },
     })
   }
 
+  public getByName(){
+      this.service.getByName(this.speedway.name).subscribe((data)=>{
+      this.speedways = data;
+    })
+    
+    
+  }
+
+
   public save(){
     if(this.speedway.id){
-      this.service.update(this.speedway).subscribe((data) => {
+      this.service.update(this.speedway).subscribe((data) => {     
         this.speedway = {} as SpeedWay;
       })
     }else{

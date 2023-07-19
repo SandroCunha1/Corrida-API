@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { EventEmitter, Injectable } from '@angular/core';
 import { Observable, Subject, tap } from 'rxjs';
 import { SpeedWay } from '../models/speed-way';
+import { Country } from '../../country/models/country';
 
 @Injectable({
   providedIn: 'root',
@@ -29,10 +30,17 @@ export class SpeedWayService {
   public getByName(name: string): Observable<SpeedWay[]> {
     this.http
       .get<SpeedWay[]>(`${this.urlBase}/name/${name}`)
-      .subscribe((users) => this.speedwaySubject.next(users));
+      .subscribe((speedways) => this.speedwaySubject.next(speedways));
     return this.speedwaySubject.asObservable();
   }
 
+  public getByCountry(country: Country): Observable<SpeedWay[]> {
+    this.http
+      .get<SpeedWay[]>(`${this.urlBase}/country/${country.id}`)
+      .subscribe((speedways) => this.speedwaySubject.next(speedways));
+    return this.speedwaySubject.asObservable();
+  }
+  
   public insert(speedway: SpeedWay): Observable<SpeedWay> {
     return this.http
       .post<SpeedWay>(this.urlBase, speedway, this.httpOption)

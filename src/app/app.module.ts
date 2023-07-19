@@ -8,6 +8,7 @@ import { UserModule } from './modules/user/user.module';
 import { HttpClientModule } from '@angular/common/http';
 import { CountryModule } from './modules/country/country.module';
 import { SpeedWayModule } from './modules/speed-way/speed-way.module';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [AppComponent],
@@ -19,7 +20,8 @@ import { SpeedWayModule } from './modules/speed-way/speed-way.module';
     MenuModule,
     UserModule,
     CountryModule,
-    SpeedWayModule
+    SpeedWayModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent],

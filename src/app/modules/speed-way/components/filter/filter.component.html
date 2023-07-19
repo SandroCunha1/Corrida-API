@@ -1,0 +1,18 @@
+<aside class="filter">
+  <h3 class="title">Filtros</h3>
+
+  <div class="filter-input">
+    <label for="">Tamanho entre: </label>
+    <div class="size-btw"><input type="number" [(ngModel)]="tamMin"/>/<input type="number"[(ngModel)]="tamMax" /></div>
+  </div>
+
+  <div class="filter-input">
+    <label for="pais">Busca por país</label>
+    <select name="country" id="pais"  autocomplete="country" [(ngModel)]="countrythis" (change)="getCountry()">
+        <option [ngValue]="undefined">Todos</option>
+        <option *ngFor="let country of countrys" [ngValue]="country" name="country" >
+          {{ country.name }}
+        </option>
+      </select>
+  </div>
+</aside>

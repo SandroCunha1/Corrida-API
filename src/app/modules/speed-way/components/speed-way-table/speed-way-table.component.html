@@ -1,4 +1,5 @@
-<section>
+<app-filter (newList)="setList($event)"></app-filter>
+<section class="section-table">
     <table width="100%" [cellPadding]="0" [cellSpacing]="0">
         <thead>
             <th colspan="100%">Cadastros</th>
@@ -13,10 +14,10 @@
             <td>{{speedWay.size}}</td>
             <td>{{speedWay.country.name}}</td>
             <td class="imgs">
-                <button >
+                <button (click)="editItem(speedWay)">
                     <img src="../../../../../assets/icones/editar.png" alt="" width="20px">
                 </button>
-                <button >
+                <button (click)="delete(speedWay)">
                     <img src="../../../../../assets/icones/excluir.png" alt="" width="20px">
                 </button>
             </td>

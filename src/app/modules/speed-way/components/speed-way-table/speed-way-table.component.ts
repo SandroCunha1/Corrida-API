@@ -23,7 +23,10 @@ export class SpeedWayTableComponent {
     this.service.editUser(newSpeedway);
   }
 
-  
+  public setList(speedways: SpeedWay[]){
+    this.speedways = speedways
+    console.log(speedways)
+  }
 
   public delete(speedway: SpeedWay) {
     this.service.delete(speedway).subscribe(() => {
