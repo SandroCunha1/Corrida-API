@@ -12,7 +12,6 @@ export class UserFormComponent implements OnInit {
   constructor(private service: UserService) {}
 
   public user = {} as User;
-
   public users!: User[];
   public error!: string;
 
@@ -25,7 +24,6 @@ export class UserFormComponent implements OnInit {
   }
 
   public getByName() {
-    console.log("DSa")
     if (this.user.name.length <= 0) {
       this.service.listAll().subscribe();
     } else {
@@ -52,7 +50,8 @@ export class UserFormComponent implements OnInit {
 
   public save() {
     if (this.user.id) {
-      this.service.update(this.user).subscribe((data) => {
+      this.service.update(this.user).subscribe(
+        (data) => {
         this.user = {} as User;
       });
     } else {
@@ -61,4 +60,5 @@ export class UserFormComponent implements OnInit {
       });
     }
   }
+  
 }

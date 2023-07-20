@@ -15,6 +15,10 @@ export class CountryFormComponent {
 
   public countrys!: Country[];
 
+  public error!: string;
+
+  
+
   ngOnInit(): void {
     this.service.emitEvent.subscribe({
       next: (res: Country) => {
@@ -23,10 +27,27 @@ export class CountryFormComponent {
     });
   }
 
+
+
   public getByName() {
+    if (this.country.name.length <= 0) {
+      this.error = ""
+      this.service.listAll().subscribe();
+      
+    } else {
     this.service.getByName(this.country.name).subscribe((data) => {
       this.countrys = data;
-    });
+    });}
+  }
+
+  public isError(): boolean {
+    if (this.service.error) {
+      this.error = this.service.error;
+      return true;
+    } else {
+      this.error = '';
+      return false;
+    }
   }
 
   public save() {

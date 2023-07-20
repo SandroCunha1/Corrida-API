@@ -1,37 +1,58 @@
 <section class="section-form">
   <form class="form" method="get">
-    
     <label for="nome"
       >Nome:
-      <input type="text" name="nome" id="nome"  [(ngModel)]="user.name" (keyup)="getByName()"/>
-      <button type="button" >
+      <input
+        type="text"
+        name="nome"
+        id="nome"
+        [(ngModel)]="user.name"
+        (keyup)="getByName()"
+      />
+      <button type="button">
         <img
           src="../../../../../assets/icones/search.png"
           alt=""
           width="30px"
         />
       </button>
-
     </label>
-    <p class="error" *ngIf="isError()">{{error}}</p>
+    <p class="error" *ngIf="isError()">{{ error }}</p>
     <label for="email"
       >Email:
-      <input type="text" name="email" id="email" [(ngModel)]="user.email"/>
+      <input type="text" name="email" id="email" [(ngModel)]="user.email" />
     </label>
 
     <label for="password"
       >Senha:
-      <input type="password" name="password" id="password" [(ngModel)]="user.password"/>
+      <input
+        type="password"
+        name="password"
+        id="password"
+        [(ngModel)]="user.password"
+      />
     </label>
 
     <div class="radio-group">
       <p>Permissões:</p>
       <div class="buttons">
         <label for="admin"
-          ><input type="radio" name="radio" id="admin" value="ADMIN,USER" [(ngModel)]="user.roles"/>ADMIN</label
+          ><input
+            type="radio"
+            name="radio"
+            id="admin"
+            value="ADMIN,USER"
+            [(ngModel)]="user.roles"
+          />ADMIN</label
         >
         <label for="user"
-          ><input type="radio" name="radio" id="user" value="USER" [(ngModel)]="user.roles"/>USER</label
+          ><input
+            type="radio"
+            name="radio"
+            id="user"
+            value="USER"
+            [(ngModel)]="user.roles"
+          />USER</label
         >
       </div>
     </div>

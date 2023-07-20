@@ -3,16 +3,16 @@
       
       <label for="nome"
         >Nome:
-        <input type="text" name="nome" id="nome" [(ngModel)]="country.name"/>
-        <button type="button" (click)="getByName()">
+        <input type="text" name="nome" id="nome" [(ngModel)]="country.name" (keyup)="getByName()"/>
+        <button type="button">
           <img
             src="../../../../../assets/icones/search.png"
             alt=""
             width="30px"
           />
         </button>
-  
       </label>
+      <p *ngIf="isError()" class="error">{{error}}</p>
   
       <button class="submit-btn" type="button" (click)="save()">Salvar</button>
     </form>

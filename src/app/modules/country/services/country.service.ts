@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { EventEmitter, Injectable } from '@angular/core';
 import { Country } from '../models/country';
-import { Observable, Subject, tap } from 'rxjs';
+import { Observable, Subject, catchError, tap, throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -15,6 +15,10 @@ export class CountryService {
 
   private countrySubject = new Subject<Country[]>();
 
+  public error!: string;
+
+  private countrys!: Country[];
+
   private httpOption = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
   };
@@ -22,15 +26,23 @@ export class CountryService {
   public listAll(): Observable<Country[]> {
     this.http
       .get<Country[]>(this.urlBase)
-      .subscribe((countrys) => this.countrySubject.next(countrys));
+      .subscribe((countrys) => {this.countrySubject.next(countrys); this.error = '';});
     return this.countrySubject.asObservable();
   }
 
   public getByName(name: string): Observable<Country[]> {
-    this.http
-      .get<Country[]>(`${this.urlBase}/name/${name}`)
-      .subscribe((countrys) => this.countrySubject.next(countrys));
-    return this.countrySubject.asObservable();
+    return this.http
+      .get<Country[]>(`${this.urlBase}/name/${name}`).pipe(
+        catchError((error) => {
+          this.countrySubject.next(this.countrys);
+          this.error = '* '+ error.error.error
+          return throwError(() => {return error;});
+        }),
+        tap((countrys) => {
+          this.countrySubject.next(countrys);
+          this.error = '';
+        })
+      );
   }
 
   public insert(user: Country): Observable<Country> {

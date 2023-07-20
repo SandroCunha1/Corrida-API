@@ -33,7 +33,8 @@ export class UserService {
     return this.http.get<User[]>(`${this.urlBase}/name/${name}`).pipe(
       catchError((error) => {
         this.usersSubject.next(this.users);
-        return throwError( error);
+        this.error = '* '+ error.error.error
+        return throwError(() => {return error;});
       }),
       tap((users) => {
         this.usersSubject.next(users);
