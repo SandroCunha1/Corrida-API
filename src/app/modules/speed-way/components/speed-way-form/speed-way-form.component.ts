@@ -36,9 +36,13 @@ export class SpeedWayFormComponent {
   }
 
   public getByName(){
+    if(this.speedway.name.length <= 0){
+      this.service.listAll().subscribe()
+    }else{
       this.service.getByName(this.speedway.name).subscribe((data)=>{
       this.speedways = data;
     })
+    }
     
     
   }

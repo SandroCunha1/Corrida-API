@@ -30,7 +30,7 @@ export class SpeedWayService {
   public getByName(name: string): Observable<SpeedWay[]> {
     this.http
       .get<SpeedWay[]>(`${this.urlBase}/name/${name}`)
-      .subscribe((speedways) => this.speedwaySubject.next(speedways));
+      .subscribe((speedways) => this.speedwaySubject.next(speedways), (error) =>{console.log(error.error.error)});
     return this.speedwaySubject.asObservable();
   }
 

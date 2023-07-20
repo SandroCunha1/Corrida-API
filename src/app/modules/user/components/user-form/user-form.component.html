@@ -3,8 +3,8 @@
     
     <label for="nome"
       >Nome:
-      <input type="text" name="nome" id="nome"  [(ngModel)]="user.name" />
-      <button type="button" (click)="getByName()">
+      <input type="text" name="nome" id="nome"  [(ngModel)]="user.name" (keyup)="getByName()"/>
+      <button type="button" >
         <img
           src="../../../../../assets/icones/search.png"
           alt=""
@@ -13,6 +13,7 @@
       </button>
 
     </label>
+    <p class="error" *ngIf="isError()">{{error}}</p>
     <label for="email"
       >Email:
       <input type="text" name="email" id="email" [(ngModel)]="user.email"/>
