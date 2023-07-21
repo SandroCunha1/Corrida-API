@@ -9,6 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { CountryModule } from './modules/country/country.module';
 import { SpeedWayModule } from './modules/speed-way/speed-way.module';
 import { FormsModule } from '@angular/forms';
+import { LoginModule } from './modules/login/login.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -21,6 +22,7 @@ import { FormsModule } from '@angular/forms';
     UserModule,
     CountryModule,
     SpeedWayModule,
+    LoginModule,
     FormsModule
   ],
   providers: [],

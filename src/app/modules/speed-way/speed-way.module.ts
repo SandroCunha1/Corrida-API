@@ -5,6 +5,7 @@ import { SpeedWayFormComponent } from './components/speed-way-form/speed-way-for
 import { SpeedWayTableComponent } from './components/speed-way-table/speed-way-table.component';
 import { FormsModule } from '@angular/forms';
 import { FilterComponent } from './components/filter/filter.component';
+import { MenuModule } from '../menu/menu.module';
 
 
 
@@ -17,6 +18,7 @@ import { FilterComponent } from './components/filter/filter.component';
   ],
   imports: [
     CommonModule,
+    MenuModule,
     FormsModule
   ],
   exports: [

@@ -50,6 +50,15 @@ export class CountryFormComponent {
     }
   }
 
+  public isEmpty(): boolean {
+    if (
+      this.country.name
+    ) {
+      return false;
+    }
+    return true;
+  }
+
   public save() {
     if (this.country.id) {
       this.service.update(this.country).subscribe((data) => {

@@ -43,8 +43,17 @@ export class SpeedWayFormComponent {
       this.speedways = data;
     })
     }
-    
-    
+  }
+
+  public isEmpty(): boolean {
+    if (
+      this.speedway.name &&
+      this.speedway.country  &&
+      this.speedway.size 
+    ) {
+      return false;
+    }
+    return true;
   }
 
 

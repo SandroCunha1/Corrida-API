@@ -29,6 +29,6 @@
       </option>
     </select>
 
-    <button class="submit-btn" type="button" (click)="save()">Salvar</button>
+    <button class="submit-btn" type="button" (click)="save()" [disabled]="isEmpty()">Salvar</button>
   </form>
 </section>

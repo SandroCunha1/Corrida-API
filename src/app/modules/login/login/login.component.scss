@@ -1,0 +1,72 @@
+@import "../../../../dist/SCSS/variables.scss";
+
+.login-container {
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+  width: 60%;
+  color: $text-color;
+  font-size: 1.3em;
+  .login {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    margin-top: 100px;
+    background-color: $background;
+    border-radius: 20px;
+    border: 1px solid white;
+    box-shadow: 0 0 20px 10px rgba(150, 148, 148, 0.692);
+    .img{
+        background-image: url("https://i0.statig.com.br/bancodeimagens/1c/7d/jf/1c7djf1k8lixo7zso3b7lvmpj.jpg");
+        background-position: center;
+        background-size: cover;
+        height: 400px;
+        width: 100%;
+        border-radius: 20px 0 0 10px;
+    }
+    form {
+      display: flex;
+      align-self: baseline;
+      margin-top: 30px;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      .error{
+        color: red;
+        font-size: 1rem;
+      }
+      input{
+        width: 100%;
+        background: none;
+        border: none;
+        outline: none;
+        padding: 4px;
+        color: $text-color;
+        font-size: 0.8em;
+        border-bottom: 1px solid white;
+        margin-bottom: 10px;
+      }
+      h1{
+        margin-bottom: 40px;
+      }
+      button{
+        margin-top: 20px;
+        padding: 10px;
+        text-transform: uppercase;
+        cursor: pointer;
+        width: 200px;
+        border: 1px solid rgba(70, 69, 69, 0.596);
+        border-radius: 20px;
+        color: $text-color;
+        background-color: $green;
+        transition: 0.3s ease-in-out;
+        &:hover{
+            scale:1.1;
+            transition: 0.3s ease-in-out;
+        }
+      }
+    }
+  }
+}

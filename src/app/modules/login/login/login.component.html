@@ -1,0 +1,20 @@
+<main class="login-container">
+    <div class="login">
+        <div class="img" alt="imgaem de carro"></div>
+        <form action="">
+            <h1>Cadastro de Corridas</h1>
+            <label for="email">
+                E-mail
+                <input type="email" name="email" id="email" [(ngModel)]="login.email"/>
+            </label>
+
+            <label for="senha">
+                Senha:
+                <input type="password" name="senha" id="senha" [(ngModel)]="login.password"/>
+            </label>
+            <p class="error" *ngIf="loginErrorMessage">{{loginErrorMessage}}</p>
+            <button type="button" (click)="loginButton()">Log In</button>
+
+        </form>
+    </div>
+</main>

@@ -38,6 +38,18 @@ export class UserFormComponent implements OnInit {
     }
   }
 
+  public isEmpty(): boolean {
+    if (
+      this.user.name &&
+      this.user.email  &&
+      this.user.roles &&
+      (this.user.id || this.user.password)
+    ) {
+      return false;
+    }
+    return true;
+  }
+
   public isError(): boolean {
     if (this.service.error) {
       this.error = this.service.error;
@@ -50,8 +62,7 @@ export class UserFormComponent implements OnInit {
 
   public save() {
     if (this.user.id) {
-      this.service.update(this.user).subscribe(
-        (data) => {
+      this.service.update(this.user).subscribe((data) => {
         this.user = {} as User;
       });
     } else {
@@ -60,5 +71,4 @@ export class UserFormComponent implements OnInit {
       });
     }
   }
-  
 }

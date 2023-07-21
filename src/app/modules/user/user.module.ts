@@ -4,6 +4,7 @@ import { UserComponent } from './components/user/user.component';
 import { UserFormComponent } from './components/user-form/user-form.component';
 import { UserTableComponent } from './components/user-table/user-table.component';
 import { FormsModule } from '@angular/forms';
+import { MenuModule } from '../menu/menu.module';
 
 
 
@@ -16,6 +17,7 @@ import { FormsModule } from '@angular/forms';
   ],
   imports: [
     CommonModule,
+    MenuModule,
     FormsModule
   ],
   exports: [
